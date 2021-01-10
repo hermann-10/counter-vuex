@@ -8,22 +8,22 @@
 </template>
 
 <script>
+
   export default {
-    data(){
-      return{
-        currentValue: 0
-      }
-    }, 
     methods: {
       increment() {
-        this.currentValue = this.currentValue + 1;
+        this.$store.commit('INCREMENT_COUNTER');
       },
       decrement() {
-        this.currentValue = this.currentValue - 1;
+        this.$store.commit('DECREMENT_COUNTER');
       }
-
-    }  
-  }
+    },
+    computed: { //retourner le morceau d'état qu'on souhaite afficher
+      currentValue(){
+        return this.$store.state.currentValue;
+      }
+    } 
+  };
 </script>
 
 <style lang="scss" scoped>
