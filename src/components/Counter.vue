@@ -8,7 +8,7 @@
 </template>
 
 <script>
-
+  import { mapState } from "vuex";
   export default {
     methods: {
       increment() {
@@ -18,10 +18,8 @@
         this.$store.commit('DECREMENT_COUNTER');
       }
     },
-    computed: { //retourner le morceau d'état qu'on souhaite afficher
-      currentValue(){
-        return this.$store.state.currentValue;
-      }
+    computed: { //retourner le morceau d'état qu'on souhaite afficher  
+        ...mapState(["currentValue"])
     } 
   };
 </script>
